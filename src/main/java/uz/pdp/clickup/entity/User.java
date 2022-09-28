@@ -21,6 +21,7 @@ import java.util.Objects;
 @Getter
 @Setter
 @Entity
+@Table(name = "users")
 public class User extends AbstractUUIDEntity implements UserDetails {
 
     private String fullName;
@@ -88,5 +89,12 @@ public class User extends AbstractUUIDEntity implements UserDetails {
     @Override
     public int hashCode() {
         return getClass().hashCode();
+    }
+
+    public User(String fullName, String email, String password, SystemRoleName systemRoleName) {
+        this.fullName = fullName;
+        this.email = email;
+        this.password = password;
+        this.systemRoleName = systemRoleName;
     }
 }
